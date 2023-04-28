@@ -15,6 +15,9 @@ namespace Dashboard.Pages.Candidats
         }
         public async  Task<IActionResult> OnPost()
         {
+            //validation pour savoir si le model est valid(coté server)
+            if (!ModelState.IsValid) return Page();
+
             Candidat.Vide = DateTime.Now;
             await _context.Candidats.AddAsync(Candidat);
             await _context.SaveChangesAsync();

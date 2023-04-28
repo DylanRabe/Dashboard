@@ -10,12 +10,14 @@ Add new Candidat
     <div class="form-group">
         <label asp-for="Candidat.Name" class="form-label">Name</label>
         <input asp-for="Candidat.Name" class="form-control"/>
+        <span asp-validation-for="Candidat.Name" class="text text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Candidat.Summary" class="form-label">Summary</label>
         @*<input asp-for="Candidat.Summary" class="form-control"/>*@
         <textarea asp-for="Candidat.Summary" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Candidat.Summary" class="text text-danger"></span>
         
     </div>
 
