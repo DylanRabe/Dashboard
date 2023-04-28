@@ -19,12 +19,12 @@ namespace Dashboard.Pages
         //methode handler
         public async void OnGet()
         {
-            Candidats = await _context.Candidats.Where(i => i.Name == null)
+            candidats = await _context.Candidats.Where(i => i.Name == null)
                 .OrderByDescending(i => i.Id)
                 .ToListAsync();
         }
 
-        public IEnumerable<Candidat> Candidats { get; set; } = Enumerable.Empty<Candidat>();
+        public IEnumerable<Candidat> candidats { get; set; } = Enumerable.Empty<Candidat>();
 
 
     }

@@ -15,7 +15,7 @@
     <a asp-page="/Candidats/new" class="w-20 vtn btn-primary m-2" > Add new </a>
 
 
-    @if(Model.Candidats.Count() == 0)
+    @if(Model.candidats.Count() == 0)
     {
         <p>Pas de Candidat</p>
     }
@@ -25,7 +25,7 @@
         //bootstrap card compo
         <div class="row g-0">
 
-            @foreach(var candidat in Model.Candidats)
+            @foreach(var candidat in Model.candidats)
             {
                 <div class="card text-center">
                     <div class="card-header">
