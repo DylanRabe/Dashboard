@@ -1,4 +1,8 @@
 ﻿@page
+@using Dashboard.Extensions;
+@using Dashboard.Models
+@using Dashboard.Data
+@using Humanizer;
 @model IndexModel
 @{
     ViewData["Title"] = "Dashboard";
@@ -8,7 +12,7 @@
 <div  class ="text-center">
 
     @*Tag helper permet de generer element html dynamic*@
-    <a asp-page="/Candidats/new" class="w-20 vtn btn-primary m-2" >+ Add new </a>
+    <a asp-page="/Candidats/new" class="w-20 vtn btn-primary m-2" > Add new </a>
 
 
     @if(Model.Candidats.Count() == 0)
@@ -21,7 +25,25 @@
         //bootstrap card compo
         <div class="row g-0">
 
-            
+            @foreach(var candidat in Model.Candidats)
+            {
+                <div class="card text-center">
+                    <div class="card-header">
+                        @candidat.Gender
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a asp-page="/Candidats/Detail"  asp-route-id="@candidat.Id" class="link-dark text-decoration-none">@candidat.Name</a>
+                        </h5>
+                        <span class="@candidat.CV.ToCssClass()">@candidat.CV</span>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>@candidat.Complet.Humanize(utcDate:true)</small>
+                    </div>
+                </div>
+            }
+
         </div>
     }
 </div>

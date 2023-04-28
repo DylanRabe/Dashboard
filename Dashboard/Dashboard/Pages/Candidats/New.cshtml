@@ -6,7 +6,7 @@
 Add new Candidat
 
 <div class="mt-5">
-    <form method="post"></form>
+    <form method="post">
     <div class="form-group">
         <label asp-for="Candidat.Name" class="form-label">Name</label>
         <input asp-for="Candidat.Name" class="form-control"/>
@@ -34,7 +34,7 @@ Add new Candidat
                 asp-for="Candidat.CV"
                 asp-items="Html.GetEnumSelectList<CVType>()"></select>
     </div>
-    <button class="wt-20 col-15 btn btn-primary btn-lg">Save</button>
-
-    <form></form>
+    <button class="wt-20 col-10 btn btn-primary btn-lg">Save</button>
+    </form>
+    
 </div>

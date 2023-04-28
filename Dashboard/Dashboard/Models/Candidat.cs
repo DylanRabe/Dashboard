@@ -10,10 +10,10 @@ namespace Dashboard.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(50)]
         public string Name { get; set; } = string.Empty;
         [Required]
-        [StringLength(400)]
+        [StringLength(150)]
         public string Summary { get; set; } = string.Empty;
 
         public CVType CV { get; set; }
@@ -33,7 +33,7 @@ namespace Dashboard.Models
 
     public enum CVType
     {
-        Competence ,
+        Competence   ,
         Experience ,
         Language
     }
