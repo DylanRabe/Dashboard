@@ -1,10 +1,18 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div  class ="text-center">
+
+    @*Tag helper permet de generer element html dynamic*@
+    <a asp-page="/Candidats/new" class="w-20 vtn btn-primary m-2" >+ Add new </a>
+
+
+    @if(Model.Candidats.Count() == 0)
+    {
+        <p>Pas de Candidat</p>
+    }
 </div>

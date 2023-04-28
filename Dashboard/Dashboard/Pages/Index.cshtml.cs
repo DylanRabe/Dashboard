@@ -1,20 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dashboard.Data;
+using Dashboard.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using System.Collections;
 
 namespace Dashboard.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly CandidatDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(CandidatDbContext context)
         {
-            _logger = logger;
+             _context = context;
         }
 
-        public void OnGet()
+        //methode handler
+        public async void OnGet()
         {
-
+            Candidats = await _context.Candidats.Where(i => i.Name == null)
+                .OrderByDescending(i => i.Id)
+                .ToListAsync();
         }
+
+        public IEnumerable<Candidat> Candidats { get; set; } = Enumerable.Empty<Candidat>();
+
+
     }
 }
